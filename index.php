@@ -10,13 +10,13 @@ if($method == "GET") {
        $id = $_GET['id'];
        $json = null;
        $api = new Api();
-       $vector = $api->getUsuario($id);
+       $vector = $api->getLibro($id);
        $json = json_encode($vector);
        echo $json; 
     }else{
        $vector = array();
        $api = new Api();
-       $vector = $api->getUsuarios();
+       $vector = $api->getLibros();
        $json = json_encode($vector);
        echo $json;
     }

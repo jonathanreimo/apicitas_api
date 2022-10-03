@@ -2,18 +2,18 @@
  
 class Api{
 
-public function getUsuarios(){
+public function getLibros(){
      $vector = array();
      $conexion = new Conexion();
      $db = $conexion->getConexion();
-     $sql = "SELECT * FROM user";
+     $sql = "SELECT * FROM libro";
      $consulta = $db->prepare($sql);
      $consulta->execute();
      while($fila = $consulta->fetch()) {
         $vector[] = array(
           "id" => $fila['id'],
-          "nombre" => $fila['name'],
-          "email" =>  $fila['email']); }
+          "nombre" => $fila['libro'],
+          "edicion" =>  $fila['edicion']); }
 
      return $vector;
 }
