@@ -12,12 +12,11 @@ public function getLibros(){
      while($fila = $consulta->fetch()) {
         $vector[] = array(
           "id" => $fila['id'],
-          "nombre" => $fila['libro'],
+          "nombre" => $fila['nombre'],
           "edicion" =>  $fila['edicion']); }
 
      return $vector;
 }
-
 
 public function addLibro($nombre, $edicion){
   
@@ -77,6 +76,4 @@ public function updateLibro($id, $nombre, $edicion){
 
 
 }
-
-//echo "<span>Hola mundo</span>";
 ?>
