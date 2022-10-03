@@ -78,5 +78,5 @@ public function updateLibro($id, $nombre, $edicion){
 
 }
 
-echo "<span>Hola mundo</span>";
+//echo "<span>Hola mundo</span>";
 ?>
