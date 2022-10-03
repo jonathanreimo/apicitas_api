@@ -28,7 +28,7 @@ public function addLibro($nombre, $edicion){
   $consulta->bindParam(':edicion', $edicion);
   $consulta->execute();
 
-  return '{"msg":"libro agregado"}';
+  return '{"msg":"usuario agregado"}';
 }
 
 public function deleteLibro($id){
@@ -39,7 +39,7 @@ public function deleteLibro($id){
   $consulta->bindParam(':id', $id); 
   $consulta->execute();
 
-  return '{"msg":"libro eliminado"}';
+  return '{"msg":"usuario eliminado"}';
 }
 
 public function getLibro($id){
@@ -63,14 +63,14 @@ public function updateLibro($id, $nombre, $edicion){
   
   $conexion = new Conexion();
   $db = $conexion->getConexion();
-  $sql = "UPDATE libro SET nombre=:nombre, edicion=:edicion WHERE id=:id";
+  $sql = "UPDATE libro SET id=:id, nombre=:nombre, edicion=:edicion WHERE id=:id";
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':id', $id);  
   $consulta->bindParam(':nombre', $nombre);
   $consulta->bindParam(':edicion', $edicion);
   $consulta->execute();
 
-  return '{"msg":"libro actualizado"}';
+  return '{"msg":"usuario actualizado"}';
 }
 
 
