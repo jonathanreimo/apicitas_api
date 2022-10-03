@@ -18,7 +18,7 @@ public function getLibros(){
      return $vector;
 }
 
-/*
+
 public function addLibro($nombre, $edicion){
   
   $conexion = new Conexion();
@@ -72,7 +72,7 @@ public function updateLibro($id, $nombre, $edicion){
   $consulta->execute();
 
   return '{"msg":"libro actualizado"}';
-}*/
+}
 
 
 
