@@ -28,8 +28,8 @@ public function getFolios(){
   while($fila = $consulta->fetch()) {
      $vector[] = array(
        "id" => $fila['id'],
-       "nombre" => $fila['nombre'],
-       "edicion" =>  $fila['edicion']); }
+       "na" => $fila['nombre'],
+       "ed" =>  $fila['edicion']); }
 
   return $vector;
 }
