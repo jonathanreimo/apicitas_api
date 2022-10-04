@@ -34,26 +34,40 @@ public function addLibro($nombre, $edicion){
 public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
-  $sqldos = "SELECT id, nombre, edicion FROM libro WHERE id=:id";
-  $result = $db->prepare($sqldos);
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while($filados = $result->fetch_assoc()) {
-      $idtres = $filados["id"];
-      $nombretres = $filados["nombre"];
-      $ediciontres =  $filados["edicion"]; 
-  }
-  $sqltres = "INSERT INTO librodos (nombre, edicion) VALUES ($nombretres, $ediciontres)";
-}
-$sql = "DELETE FROM libro WHERE id=:id";
+
+  $vector = array();
+  $conexion = new Conexion();
+  $db = $conexion->getConexion();
+  $sql = "SELECT id, nombre, edicion FROM libro WHERE id=:id";
+  $consulta = $db->prepare($sql);
+  $consulta->bindParam(':id', $id);
+  $consulta->execute();
+  while($fila = $consulta->fetch()) {
+     $vector[] = array(
+       "id" => $fila['id'],
+       "nombre" => $fila['nombre'],
+       "edicion" =>  $fila['edicion']); }
+
+  return $vector[0];
+  $sql = "INSERT INTO librodos (nombre, edicion) VALUES (:nombre,:edicion)";
+  $consulta = $db->prepare($sql);
+  $consulta->bindParam(':id', $id);  
+  $consulta->bindParam(':nombre', $nombre);
+  $consulta->bindParam(':edicion', $edicion);
+  $consulta->execute();
+
+
+
+  $sql = "DELETE FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':id', $id); 
   $consulta->execute();
-
+  
   return '{"msg":"usuario eliminado"}';
 }
 
 public function getLibro($id){
+  $vector = array();
   $conexion = new Conexion();
   $db = $conexion->getConexion();
   $sql = "SELECT id, nombre, edicion FROM libro WHERE id=:id";
