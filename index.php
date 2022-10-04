@@ -24,20 +24,12 @@ if($method == "GET") {
 }
 
 if($method == "GET") {
-    if(!empty($_GET['id'])){
-       $id = $_GET['id'];
-       $json = null;
-       $api = new Api();
-       $vector = $api->getFolio($id);
-       $json = json_encode($vector);
-       echo $json; 
-    }else{
+
        $vector = array();
        $api = new Api();
        $vector = $api->getFolios();
        $json = json_encode($vector);
        echo $json;
-    }
    
 }
 
