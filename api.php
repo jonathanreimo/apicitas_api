@@ -18,6 +18,22 @@ public function getLibros(){
      return $vector;
 }
 
+public function getFolios(){
+  $vector = array();
+  $conexion = new Conexion();
+  $db = $conexion->getConexion();
+  $sql = "SELECT * FROM librodos";
+  $consulta = $db->prepare($sql);
+  $consulta->execute();
+  while($fila = $consulta->fetch()) {
+     $vector[] = array(
+       "id" => $fila['id'],
+       "nombre" => $fila['nombre'],
+       "edicion" =>  $fila['edicion']); }
+
+  return $vector;
+}
+
 public function addLibro($nombre, $edicion){
   
   $conexion = new Conexion();
@@ -29,6 +45,17 @@ public function addLibro($nombre, $edicion){
   $consulta->execute();
 
   return '{"msg":"usuario agregado"}';
+}
+
+public function searchFolio($id){
+  
+  $conexion = new Conexion();
+  $db = $conexion->getConexion();
+  $sql = "SELECT id, nombre, edicion FROM librodos WHERE id=:id";
+  $consulta = $db->prepare($sql);
+  $consulta->bindParam(':id', $id);
+  $consulta->execute();
+
 }
 
 

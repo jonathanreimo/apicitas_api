@@ -23,6 +23,24 @@ if($method == "GET") {
    
 }
 
+if($method == "GET") {
+    if(!empty($_GET['id'])){
+       $id = $_GET['id'];
+       $json = null;
+       $api = new Api();
+       $vector = $api->getFolio($id);
+       $json = json_encode($vector);
+       echo $json; 
+    }else{
+       $vector = array();
+       $api = new Api();
+       $vector = $api->getFolios();
+       $json = json_encode($vector);
+       echo $json;
+    }
+   
+}
+
 if($method == "POST"){
     $json = null;
     $data = json_decode(file_get_contents("php://input"), true);
@@ -30,6 +48,15 @@ if($method == "POST"){
     $edicion = $data['edicion'];
     $api = new Api();
     $json = $api->addLibro($nombre, $edicion);
+    echo $json;
+}
+
+if($method == "POST"){
+    $json = null;
+    $data = json_decode(file_get_contents("php://input"), true);
+    $id = $data['id'];
+    $api = new Api();
+    $json = $api->searchFolio($id);
     echo $json;
 }
 
