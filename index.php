@@ -24,13 +24,11 @@ if($method == "GET") {
 }
 
 if($method == "GET") {
-
        $vector = array();
        $api = new Api();
        $vector = $api->getFolios();
        $json = json_encode($vector);
-       echo $json;
-   
+       echo $json;  
 }
 
 if($method == "POST"){
