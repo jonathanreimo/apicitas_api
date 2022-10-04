@@ -35,14 +35,12 @@ public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
   $sqldos = "SELECT nombre, edicion FROM libro WHERE id=:id";
-  $consultados = $db->prepare($sqldos);
-  $consultados->bindParam(':id', $id);
-  $consultados->execute();
-  while($fila = $consulta->fetch()) {
+  while($fila = $consulta->fetch_assoc()) {
        $nombre = $fila["nombre"];
-       $edicion =  $fila["edicion"]; }
-  $sqltres= "INSERT INTO librodos (nombre, edicion) VALUES ($nombre, $edicion)";
-  $consultatres = $db->prepare($sqltres);
+       $edicion =  $fila["edicion"]; 
+       $sqltres= "INSERT INTO librodos (nombre, edicion) VALUES ($nombre, $edicion)";
+      }
+ 
 
   $sql = "DELETE FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
