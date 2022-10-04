@@ -39,8 +39,8 @@ public function deleteLibro($id){
   while($fila = $consultados->fetch_assoc()) {
        $nombre = $fila["nombre"];
        $edicion =  $fila["edicion"]; 
-       $sqltres= "INSERT INTO librodos (nombre, edicion) VALUES ($nombre, $edicion)";
       }
+      $sqltres= "INSERT INTO librodos (nombre, edicion) VALUES ($nombre, $edicion)";
  
 
   $sql = "DELETE FROM libro WHERE id=:id";
