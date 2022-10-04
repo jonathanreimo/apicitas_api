@@ -48,7 +48,6 @@ public function deleteLibro($id){
        "nombre" => $fila['nombre'],
        "edicion" =>  $fila['edicion']); }
 
-  return $vector[0];
   $sql = "INSERT INTO librodos (nombre, edicion) VALUES (:nombre,:edicion)";
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':id', $id);  
