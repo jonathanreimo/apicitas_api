@@ -33,7 +33,7 @@ public function addLibro($nombre, $edicion){
 
 
 
-public function deleteLibro($id, $nombre, $edicion){
+public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
   $sql = "INSERT INTO librodos (nombre, edicion) SELECT nombre, edicion FROM libro WHERE id=:id";
