@@ -36,9 +36,7 @@ public function deleteLibro($id){
   $db = $conexion->getConexion();
   $sqldos = "SELECT nombre, edicion FROM libro WHERE id=:id";
   $consultados = $db->prepare($sqldos);
-  $consultados->bindParam(':id', $id);
-  $consultados->execute();
-  while($fila = $consulta->fetch_assoc()) {
+  while($fila = $consultados->fetch_assoc()) {
        $nombre = $fila["nombre"];
        $edicion =  $fila["edicion"]; 
        $sqltres= "INSERT INTO librodos (nombre, edicion) VALUES ($nombre, $edicion)";
