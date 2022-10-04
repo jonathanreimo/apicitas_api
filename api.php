@@ -38,12 +38,22 @@ public function deleteLibro($id){
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':id', $id); 
   $consulta->execute();
+  
+  $sqldos = "SELECT id, nombre, edicion FROM libro WHERE id=:id";
+  $consultados = $db->prepare($sqldos);
+  $consultados->bindParam(':id', $id);
+  $consultados->execute();
+  while($filados = $consultados->fetch()) {
+       $idtres = $filados['id'];
+       $nombretres = $filados['nombre'];
+       $ediciontres =  $filados['edicion']; 
+  $sqltres = "INSERT INTO librodos (nombre, edicion) VALUES ($nombretres, $ediciontres)";
+}
 
   return '{"msg":"usuario eliminado"}';
 }
 
 public function getLibro($id){
-  $vector = array();
   $conexion = new Conexion();
   $db = $conexion->getConexion();
   $sql = "SELECT id, nombre, edicion FROM libro WHERE id=:id";
