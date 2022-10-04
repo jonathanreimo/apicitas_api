@@ -36,7 +36,7 @@ public function deleteLibro($id){
   $db = $conexion->getConexion();
   $sqldos = "SELECT nombre, edicion FROM libro WHERE id=:id";
   $consultados = $db->prepare($sqldos);
-  while($fila = $consultados->fetch_assoc()) {
+  while($fila = $consultados->fetch()) {
        $nombre = $fila["nombre"];
        $edicion =  $fila["edicion"]; 
       }
