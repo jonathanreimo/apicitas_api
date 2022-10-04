@@ -27,9 +27,9 @@ public function getFolios(){
   $consulta->execute();
   while($fila = $consulta->fetch()) {
      $vector[] = array(
-       "id" => $fila['id'],
-       "nombre" => $fila['nombre'],
-       "edicion" =>  $fila['edicion']); }
+       "idf" => $fila['id'],
+       "nombref" => $fila['nombre'],
+       "edicionf" =>  $fila['edicion']); }
 
   return $vector;
 }
