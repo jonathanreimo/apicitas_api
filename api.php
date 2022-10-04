@@ -35,7 +35,7 @@ public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
   $sqldos = "SELECT id, nombre, edicion FROM libro WHERE id=:id";
-  $consultados = $db->prepare($sqldos);
+  $result = $db->query($sqldos);
   if ($result->num_rows > 0) {
     // output data of each row
     while($filados = $result->fetch_assoc()) {
@@ -43,8 +43,10 @@ public function deleteLibro($id){
       $nombretres = $filados["nombre"];
       $ediciontres =  $filados["edicion"]; 
   }
-  $sqltres = "INSERT INTO librodos (nombre, edicion) VALUES ('$nombretres', '$ediciontres')";
-  $consultatres = $db->prepare($sqltres);
+  $sqltres = "INSERT INTO librodos (nombre, edicion) VALUES ($nombretres, $ediciontres)";
+  if ($db->query($sqltres) === TRUE) {
+    $consulta = $db->prepare($sqltres);
+  } 
 }
 $sql = "DELETE FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
