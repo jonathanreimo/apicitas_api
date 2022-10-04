@@ -44,9 +44,6 @@ public function deleteLibro($id){
       $ediciontres =  $filados["edicion"]; 
   }
   $sqltres = "INSERT INTO librodos (nombre, edicion) VALUES ($nombretres, $ediciontres)";
-  if ($db->query($sqltres) === TRUE) {
-    $consulta = $db->prepare($sqltres);
-  } 
 }
 $sql = "DELETE FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
