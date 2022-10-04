@@ -34,28 +34,8 @@ public function addLibro($nombre, $edicion){
 public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
-
-  $vector = array();
-  $conexion = new Conexion();
-  $db = $conexion->getConexion();
-  $sql = "SELECT id, nombre, edicion FROM libro WHERE id=:id";
-  $consulta = $db->prepare($sql);
-  $consulta->bindParam(':id', $id);
-  $consulta->execute();
-  while($fila = $consulta->fetch()) {
-     $vector[] = array(
-       "id" => $fila['id'],
-       "nombre" => $fila['nombre'],
-       "edicion" =>  $fila['edicion']); }
-
-  $sql = "INSERT INTO librodos (nombre, edicion) VALUES (:nombre,:edicion)";
-  $consulta = $db->prepare($sql);
-  $consulta->bindParam(':id', $id);  
-  $consulta->bindParam(':nombre', $nombre);
-  $consulta->bindParam(':edicion', $edicion);
-  $consulta->execute();
-
-
+  $sqldos= "INSERT INTO libro2 (nombre, edicion) SELECT nombre, edicion FROM libro WHERE id=:id";
+  $consulta = $db->prepare($sqldos);
 
   $sql = "DELETE FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
