@@ -35,7 +35,10 @@ public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
   $sqldos= "INSERT INTO libro2 (nombre, edicion) SELECT nombre, edicion FROM libro WHERE id=:id";
-  $consulta = $db->prepare($sqldos);
+  $consultados = $db->prepare($sqldos);
+  $consultados->bindParam(':nombre', $nombre);
+  $consultados->bindParam(':edicion', $edicion);
+  $consultados->execute();
 
   $sql = "DELETE FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
