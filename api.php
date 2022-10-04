@@ -31,13 +31,17 @@ public function addLibro($nombre, $edicion){
   return '{"msg":"usuario agregado"}';
 }
 
-public function deleteLibro($id){
+
+
+public function deleteLibro($id, $nombre, $edicion){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
   $sql = "INSERT INTO librodos (nombre, edicion) SELECT nombre, edicion FROM libro WHERE id=:id";
   $sql = "DELETE FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
-  $consulta->bindParam(':id', $id); 
+  $consulta->bindParam(':id', $id);
+  $consulta->bindParam(':nombre', $nombre);
+  $consulta->bindParam(':edicion', $edicion);
   $consulta->execute();
   
   return '{"msg":"usuario eliminado"}';
