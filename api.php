@@ -34,10 +34,7 @@ public function addLibro($nombre, $edicion){
 public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
-  $sql = "DELETE FROM libro WHERE id=:id";
-  $consulta = $db->prepare($sql);
-  $consulta->bindParam(':id', $id); 
-  $consulta->execute();
+  
   
   $sqldos = "SELECT id, nombre, edicion FROM libro WHERE id=:id";
   $consultados = $db->prepare($sqldos);
@@ -47,8 +44,13 @@ public function deleteLibro($id){
        $idtres = $filados['id'];
        $nombretres = $filados['nombre'];
        $ediciontres =  $filados['edicion']; 
-  $sqltres = "INSERT INTO librodos (nombre, edicion) VALUES ($nombretres, $ediciontres)";
 }
+$sqltres = "INSERT INTO librodos (nombre, edicion) VALUES ($nombretres, $ediciontres)";
+
+$sql = "DELETE FROM libro WHERE id=:id";
+  $consulta = $db->prepare($sql);
+  $consulta->bindParam(':id', $id); 
+  $consulta->execute();
 
   return '{"msg":"usuario eliminado"}';
 }
