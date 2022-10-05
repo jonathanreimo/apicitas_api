@@ -44,7 +44,7 @@ public function deleteLibro($id){
   $consultados->bindParam(':id', $id);
   $consultados->execute();
   
-  return '{"msg": "usuario eliminado";}';
+  return '{"msg": "usuario eliminado"}';
 }
 
 public function getLibro($id){
