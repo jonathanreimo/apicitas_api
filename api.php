@@ -42,7 +42,7 @@ public function deleteLibro($id){
      while($fila = $consultauno->fetch()) {
       $id = $fila['id'];
      }
-  $sql = "INSERT INTO librotres (fecha, hora) SELECT nombre, edicion FROM libro WHERE id=:id AND INSERT INTO librotres (usuario) SELECT id FROM librodos WHERE id='$id'";
+  $sql = "INSERT INTO librotres (fecha, hora) SELECT nombre, edicion FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':id', $id);
   $consulta->execute();
