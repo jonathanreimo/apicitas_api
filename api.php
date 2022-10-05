@@ -37,10 +37,10 @@ public function deleteLibro($id){
   $db = $conexion->getConexion();
 
   $sqluno = "SELECT * FROM librodos";
-     $consultauno = $db->prepare($sql);
+     $consultauno = $db->prepare($sqluno);
      $consultauno->execute();
      while($fila = $consultauno->fetch()) {
-      $id = $fila['id'];
+      $idu = $fila['id'];
      }
   $sql = "INSERT INTO librotres (fecha, hora) SELECT nombre, edicion FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
