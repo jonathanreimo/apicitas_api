@@ -12,8 +12,8 @@ public function getLibros(){
      while($fila = $consulta->fetch()) {
         $vector[] = array(
           "id" => $fila['id'],
-          "nombre" => $fila['fecha'],
-          "edicion" =>  $fila['hora']); }
+          "nombre" => $fila['nombre'],
+          "edicion" =>  $fila['edicion']); }
 
      return $vector;
 }
@@ -22,7 +22,7 @@ public function addLibro($nombre, $edicion){
   
   $conexion = new Conexion();
   $db = $conexion->getConexion();
-  $sql = "INSERT INTO libro (nombre, edicion) VALUES (:nombre,:edicion)";
+  $sql = "INSERT INTO librodos (nombre, edicion) VALUES (:nombre,:edicion)";
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':nombre', $nombre);
   $consulta->bindParam(':edicion', $edicion);
@@ -35,7 +35,7 @@ public function addLibro($nombre, $edicion){
 public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
-  $sql = "INSERT INTO librodos (nombre, edicion) SELECT nombre, edicion FROM libro WHERE id=:id";
+  $sql = "INSERT INTO librodos (fecha, hora) SELECT nombre, edicion FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':id', $id);
   $consulta->execute();
