@@ -12,8 +12,8 @@ public function getLibros(){
      while($fila = $consulta->fetch()) {
         $vector[] = array(
           "id" => $fila['id'],
-          "nombre" => $fila['nombre'],
-          "edicion" =>  $fila['edicion']); }
+          "nombre" => $fila['fecha'],
+          "edicion" =>  $fila['hora']); }
 
      return $vector;
 }
@@ -28,7 +28,7 @@ public function addLibro($nombre, $edicion){
   $consulta->bindParam(':edicion', $edicion);
   $consulta->execute();
 
-  return '{"msg":"usuario agregado"}';
+  //return '{"msg":"usuario agregado"}';
 }
 
 
