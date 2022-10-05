@@ -43,14 +43,6 @@ public function deleteLibro($id){
   $consultados = $db->prepare($sqldos);
   $consultados->bindParam(':id', $id);
   $consultados->execute();
-
-  $sqltres = "SELECT * FROM librotres WHERE folio=:id";
-  $consultatres = $db->prepare($sqltres);
-  $consultatres->bindParam(':id', $id);
-  $consultatres->execute();
-  while($fila = $consultatres->fetch()) {
-     $vector[] = array(
-       "folio" => $fila['id']); }
   
   return '{"msg": "usuario eliminado";}';
 }
