@@ -35,14 +35,7 @@ public function addLibro($nombre, $edicion){
 public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
-
-  $sqluno = "SELECT * FROM librodos";
-     $consultauno = $db->prepare($sqluno);
-     $consultauno->execute();
-     while($fila = $consultauno->fetch()) {
-      $idu = $fila['id'];
-     }
-  $sql = "INSERT INTO librotres (fecha, hora) SELECT nombre, edicion FROM libro WHERE id=:id";
+  $sql = "INSERT INTO librotres (fecha, hora, folio) SELECT nombre, edicion FROM libro WHERE id=:id";
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':id', $id);
   $consulta->execute();
@@ -50,8 +43,16 @@ public function deleteLibro($id){
   $consultados = $db->prepare($sqldos);
   $consultados->bindParam(':id', $id);
   $consultados->execute();
+
+  $sqltres = "SELECT * FROM librotres WHERE folio=:id";
+  $consultatres = $db->prepare($sqltres);
+  $consultatres->bindParam(':id', $id);
+  $consultatres->execute();
+  while($fila = $consultatres->fetch()) {
+     $vector[] = array(
+       "folio" => $fila['id']); }
   
-  return '{"msg":"usuario eliminado"}';
+  return '{"msg": "usuario eliminado";}'; $vector[0];
 }
 
 public function getLibro($id){
