@@ -35,7 +35,14 @@ public function addLibro($nombre, $edicion){
 public function deleteLibro($id){
   $conexion = new Conexion();
   $db = $conexion->getConexion();
-  $sql = "INSERT INTO librodos (fecha, hora) SELECT nombre, edicion FROM libro WHERE id=:id";
+
+  $sqluno = "SELECT * FROM librodos";
+     $consultauno = $db->prepare($sql);
+     $consultauno->execute();
+     while($fila = $consultauno->fetch()) {
+      $id = $fila['id'];
+     }
+  $sql = "INSERT INTO librotres (fecha, hora) SELECT nombre, edicion FROM libro WHERE id=:id AND INSERT INTO librotres (usuario) SELECT id FROM librodos WHERE id='$id'";
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':id', $id);
   $consulta->execute();
