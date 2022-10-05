@@ -52,7 +52,7 @@ public function deleteLibro($id){
      $vector[] = array(
        "folio" => $fila['id']); }
   
-  return '{"msg": "usuario eliminado";}'; $vector[0];
+  return '{"msg": "usuario eliminado";}';
 }
 
 public function getLibro($id){
