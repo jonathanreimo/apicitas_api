@@ -28,7 +28,7 @@ public function addLibro($nombre, $edicion){
   $consulta->bindParam(':edicion', $edicion);
   $consulta->execute();
 
-  //return '{"msg":"usuario agregado"}';
+  return '{"msg":"usuario agregado"}';
 }
 
 
