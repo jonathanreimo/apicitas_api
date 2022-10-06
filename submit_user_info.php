@@ -25,7 +25,7 @@ $query = "INSERT INTO citas (name, email, slot) values ('$json[name]', '$json[em
 //$Sql_Query = "INSERT INTO citas (name, email, slot) values ('$name','$email','$slot')";
 
 
-$sql = "SELECT * FROM slots WHERE slot='$json[slot]'";
+/*$sql = "SELECT * FROM slots WHERE slot='$json[slot]'";
  
 $result = $con->query($sql);
  
@@ -33,10 +33,12 @@ $result = $con->query($sql);
  
  //$tem = $row;
  $idsl = $row['id'];
- 
- }
 
-$Sql_Query2 = "DELETE FROM slots WHERE id='$idsl'";
+ $Sql_Query2 = "DELETE FROM slots WHERE id='$idsl'";
+ 
+ }*/
+
+
  
  
  if(mysqli_query($con, $sql, $query)){
