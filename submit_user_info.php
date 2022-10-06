@@ -20,7 +20,7 @@ include 'DBConfig.php';
 // Populate phone number from JSON $obj array and store into $phone_number.
 //$slot = $obj['slot'];
  
-$query = "INSERT INTO citas (name, email, slot) values ('$json[name]', '$json[email]', '$json[slot]')";
+$query = "INSERT INTO citas (name, email) values ('$json[name]', '$json[email]')";
  // Creating SQL query and insert the record into MySQL database table.
 //$Sql_Query = "INSERT INTO citas (name, email, slot) values ('$name','$email','$slot')";
 
