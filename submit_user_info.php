@@ -42,13 +42,13 @@ $Sql_Query2 = "DELETE FROM slots WHERE id='$idsl'";
  if(mysqli_query($con,$Sql_Query,$Sql_Query2,$sql)){
  
  // If the record inserted successfully then show the message.
-$MSG = 'Data Inserted Successfully into MySQL Database' ;
+//$MSG = 'Data Inserted Successfully into MySQL Database' ;
  
 // Converting the message into JSON format.
-$json = json_encode($MSG);
+//$json = json_encode($MSG);
  
 // Echo the message.
- echo $json ;
+ echo 'Try again';
  
  }
  else{
