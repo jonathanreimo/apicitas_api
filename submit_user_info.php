@@ -1,8 +1,8 @@
 <?php
  
 // Importing DBConfig.php file.
+include 'cors.php';
 include 'DBConfig.php';
-require_once('cors.php');
  
 // Creating connection.
  $con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
