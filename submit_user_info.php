@@ -17,7 +17,7 @@ include 'DBConfig.php';
  
  // Getting the received JSON into $json variable.
  $json = null;
- $json = json_decode(file_get_contents("php://input"), true);
+ $json = json_decode(file_get_contents('php://input'), true);
 
  //$data = json_decode(file_get_contents('php://input'), true);
  // decoding the received JSON and store into $obj variable.
