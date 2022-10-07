@@ -1,5 +1,6 @@
 <?php
 include 'DBConfig.php';
+require_once('cors.php');
  
 // Create connection
 $conn = new mysqli($HostName, $HostUser, $HostPass, $DatabaseName);
