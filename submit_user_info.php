@@ -16,7 +16,10 @@ include 'DBConfig.php';
  $con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
  
  // Getting the received JSON into $json variable.
- $json = json_decode(file_get_contents('php://input') , true);
+ $json = null;
+$data = json_decode(file_get_contents("php://input"), true);
+
+ //$data = json_decode(file_get_contents('php://input'), true);
  // decoding the received JSON and store into $obj variable.
  //$obj = json_decode($json,true);
  
@@ -29,7 +32,7 @@ include 'DBConfig.php';
 // Populate phone number from JSON $obj array and store into $phone_number.
 //$slot = $obj['slot'];
  
-$query = "INSERT INTO citas (name, email) values ('$json[name]', '$json[email]')";
+$query = "INSERT INTO citas (name, email) values ('$data[name]', '$data[email]')";
  // Creating SQL query and insert the record into MySQL database table.
 //$Sql_Query = "INSERT INTO citas (name, email, slot) values ('$name','$email','$slot')";
 
