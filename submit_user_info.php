@@ -17,22 +17,23 @@ include 'DBConfig.php';
  
  // Getting the received JSON into $json variable.
  $json = null;
-$data = json_decode(file_get_contents("php://input"), true);
+ $json = json_decode(file_get_contents("php://input"), true);
 
  //$data = json_decode(file_get_contents('php://input'), true);
  // decoding the received JSON and store into $obj variable.
- //$obj = json_decode($json,true);
+ $obj = json_decode($json,true);
  
  // Populate name from JSON $obj array and store into $name.
-//$name = $obj['name'];
+$name = $obj['name'];
  
 // Populate email from JSON $obj array and store into $email.
-//$email = $obj['email'];
+$email = $obj['email'];
  
 // Populate phone number from JSON $obj array and store into $phone_number.
 //$slot = $obj['slot'];
  
-$query = "INSERT INTO citas (name, email) values ('$data[name]', '$data[email]')";
+//$query = "INSERT INTO citas (name, email) values ('$json[name]', '$json[email]')";
+$query = "INSERT INTO citas (name, email) values ('$name', '$email')";
  // Creating SQL query and insert the record into MySQL database table.
 //$Sql_Query = "INSERT INTO citas (name, email, slot) values ('$name','$email','$slot')";
 
