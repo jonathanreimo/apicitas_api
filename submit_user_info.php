@@ -12,9 +12,7 @@ include 'DBConfig.php';
 
 $json = json_decode(file_get_contents('php://input'), true);
 
-$myArray = array();
-$myArray['lat'] = $json['lat']; 
-$myArray['lng'] = $json['lng'];
+
 
 
 
@@ -33,14 +31,13 @@ $myArray['lng'] = $json['lng'];
  $myArray = array();
  $myArray['name'] = $json['name']; 
  $myArray['email'] = $json['email'];
- $myArray['status'] = 'success';
 
  
  // Populate name from JSON $obj array and store into $name
-$name = $obj['name'];
+//$name = $obj['name'];
 
 // Populate email from JSON $obj array and store into $email
-$email = $obj['email'];
+//$email = $obj['email'];
  
 // Populate phone number from JSON $obj array and store into $phone_number
 //$slot = $obj['slot'];
