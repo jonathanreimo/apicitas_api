@@ -25,7 +25,7 @@ include 'DBConfig.php';
  
  // Populate name from JSON $obj array and store into $name.
 $name = $obj['name'];
- 
+
 // Populate email from JSON $obj array and store into $email.
 $email = $obj['email'];
  
@@ -56,7 +56,14 @@ $result = $con->query($sql);
  
  if(mysqli_query($con, $sql, $query)){
  
-    $message = 'Success!';
+    $result = [
+        'code' => "1",
+        'var_user' => $_POST["name"],
+        'var_pasw' => $_POST["email"]
+    ];
+     
+    //$message = 'Success!';
+
  // If the record inserted successfully then show the message.
 //$MSG = 'Data Inserted Successfully into MySQL Database' ;
  
@@ -67,11 +74,11 @@ $result = $con->query($sql);
  //echo $json ;
  
  }
- else{
+ /*else{
  
     $message = 'Error! Try Again.';
  
- }
- echo json_encode($message);
+ }*/
+ echo json_encode($result);
  mysqli_close($con);
 ?>
