@@ -10,26 +10,39 @@ header("Allow: POST");
 // Importing DBConfig.php file.
 include 'DBConfig.php';
 
+$json = json_decode(file_get_contents('php://input'), true);
+
+$myArray = array();
+$myArray['lat'] = $json['lat']; 
+$myArray['lng'] = $json['lng'];
+
+
 
  
 // Creating connection.
  $con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
  
  // Getting the received JSON into $json variable.
- $json = null;
+ //$json = null;
  $json = json_decode(file_get_contents('php://input'), true);
+ //$obj = json_decode($json,true);
 
  //$data = json_decode(file_get_contents('php://input'), true);
- // decoding the received JSON and store into $obj variable.
- $obj = json_decode($json,true);
+ // decoding the received JSON and store into $obj variable
+
+ $myArray = array();
+ $myArray['name'] = $json['name']; 
+ $myArray['email'] = $json['email'];
+ $myArray['status'] = 'success';
+
  
- // Populate name from JSON $obj array and store into $name.
+ // Populate name from JSON $obj array and store into $name
 $name = $obj['name'];
 
-// Populate email from JSON $obj array and store into $email.
+// Populate email from JSON $obj array and store into $email
 $email = $obj['email'];
  
-// Populate phone number from JSON $obj array and store into $phone_number.
+// Populate phone number from JSON $obj array and store into $phone_number
 //$slot = $obj['slot'];
  
 //$query = "INSERT INTO citas (name, email) values ('$json[name]', '$json[email]')";
@@ -56,11 +69,13 @@ $result = $con->query($sql);
  
  if(mysqli_query($con, $sql, $query)){
  
-    $result = [
+    /*$result = [
         'code' => "1",
         'var_user' => $_POST["name"],
         'var_pasw' => $_POST["email"]
-    ];
+    ];*/
+    $myArray['status'] = 'success';
+    
      
     //$message = 'Success!';
 
@@ -79,6 +94,7 @@ $result = $con->query($sql);
     $message = 'Error! Try Again.';
  
  }*/
- echo json_encode($result);
- mysqli_close($con);
+ echo json_encode($myArray);
+ //echo json_encode($result);
+ //mysqli_close($con);
 ?>
