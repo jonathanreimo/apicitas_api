@@ -26,7 +26,7 @@ $query_result = mysqli_query($connect_db, $query);
 
 if (!mysqli_num_rows($query_result))
 {
-    $Reg_Query = "INSERT INTO citas (`name`, `email`) VALUES ('$First_Name', '$Email')";
+    $Reg_Query = "INSERT INTO citas (name, email) VALUES ('$First_Name', '$Email')";
     $Reg_Query_Result = mysqli_query($connect_db, $Reg_Query);
 
     if ($Reg_Query_Result) 
