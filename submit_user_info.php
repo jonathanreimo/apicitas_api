@@ -11,13 +11,13 @@ header("Allow: POST");
 include 'DBConfig.php';
 
 
-$json = json_decode(file_get_contents('php://input'), true);
+//$json = json_decode(file_get_contents('php://input'), true);
 
 
 
-$First_Name = $json['First_Name'];
+$First_Name = $Decode_React_APP_Data['First_Name'];
 //$Last_Name = $Decode_React_APP_Data['Last_Name'];
-$Email = $json['Email'];
+$Email = $Decode_React_APP_Data['Email'];
 //$Password = ($Decode_React_APP_Data['Password']); //password is un-hashed mean with no hacking capability(change to md5 for secure pass)
 
 
