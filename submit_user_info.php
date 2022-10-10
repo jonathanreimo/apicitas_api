@@ -46,5 +46,6 @@ $response[] = array("Message" => $Message);
 
 echo json_encode($response);
 
+echo $response;
 
 ?>
