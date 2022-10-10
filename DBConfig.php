@@ -1,7 +1,7 @@
 <?php
 
 $host='localhost';
- $username='ziobdu';
+ $username='ziodbu';
  $password='25012020'; 
  $db_name='apiss'; 
 
