@@ -11,11 +11,13 @@ include ('DBConfig.php');
 
 //$json = json_decode(file_get_contents('php://input'), true);
 
+$json = file_get_contents('php://input');
+$obj = json_decode($json, true);
 
 
-$First_Name = $Decode_React_APP_Data['name'];
+$First_Name = $obj['name'];
 //$Last_Name = $Decode_React_APP_Data['Last_Name'];
-$Email = $Decode_React_APP_Data['email'];
+$Email = $obj['email'];
 //$Password = ($Decode_React_APP_Data['Password']); //password is un-hashed mean with no hacking capability(change to md5 for secure pass)
 
 
