@@ -13,9 +13,9 @@ include ('DBConfig.php');
 
 
 
-$First_Name = $Decode_React_APP_Data['First_Name'];
+$First_Name = $Decode_React_APP_Data['name'];
 //$Last_Name = $Decode_React_APP_Data['Last_Name'];
-$Email = $Decode_React_APP_Data['Email'];
+$Email = $Decode_React_APP_Data['email'];
 //$Password = ($Decode_React_APP_Data['Password']); //password is un-hashed mean with no hacking capability(change to md5 for secure pass)
 
 
