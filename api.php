@@ -22,7 +22,7 @@ public function addLibro($nombre, $edicion){
   
   $conexion = new Conexion();
   $db = $conexion->getConexion();
-  $sql = "INSERT INTO librodos (nombre, edicion) VALUES (:nombre,:edicion)";
+  $sql = "INSERT INTO libro (nombre, edicion) VALUES (:nombre,:edicion)";
   $consulta = $db->prepare($sql);
   $consulta->bindParam(':nombre', $nombre);
   $consulta->bindParam(':edicion', $edicion);
