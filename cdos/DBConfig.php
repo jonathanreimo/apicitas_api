@@ -2,8 +2,8 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, Authorization,X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Content-type: application/json");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+header("Access-Control-Allow-Methods: POST");
+header("Allow: POST");
 
 $host='localhost';
  $username='ziodbu';
@@ -13,7 +13,7 @@ $host='localhost';
  $connect_db = mysqli_connect($host, $username, $password, $db_name);
 
 
- $React_APP_Data = file_get_contents("php://input"); 
+ $React_APP_Data = file_get_contents('php://input'); 
  $Decode_React_APP_Data = json_decode($React_APP_Data, true);
 
 if(!$connect_db)
