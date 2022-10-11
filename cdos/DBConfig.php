@@ -13,7 +13,6 @@ $host='localhost';
  $connect_db = mysqli_connect($host, $username, $password, $db_name);
 
 
- $json = null;
  $React_APP_Data = file_get_contents("php://input"); 
  $Decode_React_APP_Data = json_decode($React_APP_Data, true);
 
