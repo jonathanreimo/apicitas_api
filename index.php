@@ -30,6 +30,7 @@ if($method == "POST"){
     $data = json_decode(file_get_contents("php://input"), true);
     $nombre = $data['nombre'];
     $edicion = $data['edicion'];
+    $edicion = $data['PickerValueHolder'];
     $api = new Api();
     $json = $api->addLibro($nombre, $edicion);
     echo $json;
