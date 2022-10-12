@@ -13,7 +13,7 @@
 
     $m_no = $DecodedData['m_no'];
     $m_name = $DecodedData['m_name'];
-    $m_course = $DecodedData['m_course'];
+    $m_course = $DecodedData['PickerValueHolder'];
 
     $insertMemberData = "INSERT INTO citas (name, email, slot) values ($m_no, '$m_name', '$m_course')";
 
