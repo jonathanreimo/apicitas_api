@@ -16,10 +16,11 @@
     $m_course = $DecodedData['PickerValueHolder'];
 
     $insertMemberData = "INSERT INTO citas (name, email, slot) values ($m_no, '$m_name', '$m_course')";
+    
 
     $ereaseMemberData = "DELETE FROM slots WHERE slot='$m_course'";
 
-    $register = mysqli_query($CN, $insertMemberData);
+    $register = mysqli_query($CN, $insertMemberData, $ereaseMemberData);
 
     if ($register) 
         $Message = "Registro hecho";
