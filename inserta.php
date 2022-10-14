@@ -17,16 +17,7 @@
 
     $insertMemberData = "INSERT INTO citas (name, email, slot) values ($m_no, '$m_name', '$m_course')";
     
-
-    $conn = new mysqli("localhost", "ziodbu", "25012020", "apiss");
-
-    $sql = "SELECT id FROM slots WHERE slot='$m_course'";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_row($result);
-
-$ereaseMemberData = "DELETE FROM slots WHERE id='$row[id]'";
-
-    $register = mysqli_query($CN, $insertMemberData, $ereaseMemberData);
+    $register = mysqli_query($CN, $insertMemberData);
 
     if ($register) 
         $Message = "Registro hecho";
@@ -35,4 +26,5 @@ $ereaseMemberData = "DELETE FROM slots WHERE id='$row[id]'";
 
     $Response[] = array("Message" => $Message);
     echo json_encode($Response);
+    
 ?>
