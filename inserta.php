@@ -22,7 +22,7 @@
     $consulta = "SELECT * FROM slots WHERE slot='$m_course'";
     $result = mysqli_query($conn,$consulta);
     $row = mysqli_fetch_row($result);
-    $ids = $row['id'];
+    $ids = $row[id];
 
     $deleteMemberData = "DELETE FROM slots WHERE id=$ids";
 
