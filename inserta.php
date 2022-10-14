@@ -24,7 +24,7 @@
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_row($result);
 
-$ereaseMemberData = "DELETE FROM MyGuests WHERE id=$row[id]";
+$ereaseMemberData = "DELETE FROM slots WHERE id='$row[id]'";
 
     $register = mysqli_query($CN, $insertMemberData, $ereaseMemberData);
 
