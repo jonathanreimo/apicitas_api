@@ -15,9 +15,18 @@
     $m_name = $DecodedData['m_name'];
     $m_course = $DecodedData['PickerValueHolder'];
 
-    $insertMemberData = "INSERT INTO citas (name, email, slot) values ($m_no, '$m_name', '$m_course')";
-    
-    $register = mysqli_query($CN, $insertMemberData);
+    $insertMemberData = "INSERT INTO citas (name, email, slot) values ('$m_no', '$m_name', '$m_course')";
+
+    $conn = mysqli_connect("localhost", "ziodbu", "25012020", "apiss");
+
+    $consulta = "SELECT * FROM slots WHERE slot='$m_course'";
+    $result = mysqli_query($conn,$consulta);
+    $row = mysqli_fetch_row($result);
+    $ids = $row['id'];
+
+    $deleteMemberData = "DELETE FROM slots WHERE id=$ids";
+
+    $register = mysqli_query($CN, $insertMemberData, $deleteMemberData);
 
     if ($register) 
         $Message = "Registro hecho";
